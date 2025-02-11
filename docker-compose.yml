@@ -1,1 +1,16 @@
-test
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    container_name: web
+    network_mode: "host"
+    restart: always
+    environment:
+      TZ: 'Asia/Bangkok'
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    volumes:
+      - web-config:/etc/nginx
+volumes:
+  web-config:
